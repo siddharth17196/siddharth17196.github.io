@@ -7,6 +7,6 @@ main:
   - title: "About"
     url: /about/
   - title: "Resume"
-    url: /assets/resume/resume.pdf/
+    url: https://github.com/siddharth17196/siddharth17196.github.io/master/assets/resume/resume.pdf
   # - title: "Sitemap"
   #   url: /sitemap/
