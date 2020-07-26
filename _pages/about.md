@@ -9,7 +9,7 @@ toc: true
 Hi, my name is Siddharth Nair and I’m a final-year Btech student in Electronics 
 and Communication at IIIT-Delhi.
 
-I was a Research Intern at [TCS Research](https://www.tcs.com/tcs-research) in the 
+I was a Research Intern at [TCS Research](https://www.tcs.com/decoding-the-human-genome) in the 
 Life Sciences unit from May to July, 2020. Here I worked on analysing and implementing 
 various deep learning methods for b-cell epitope and antibody predictions along 
 with improvements to the existing methods.
