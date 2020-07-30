@@ -20,7 +20,7 @@ detection, protein sequence prediction and autonomous vehicles.
 
 ## Related Coursework
 * Deep Learning
-* Speech Reacognition and Understanding
+* Speech Recognition and Understanding
 * Machine Learning
 * Math - I, II
 * Data Structures and Algorithms
