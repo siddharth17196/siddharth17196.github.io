@@ -125,8 +125,8 @@ footer:
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/nibbanair"
     - label: "Facebook"
-      # icon: "fab fa-fw fa-facebook-square"
-      url: "https://facebook.com/siddharth17196"
+      icon: "fab fa-fw fa-facebook-square"
+      # url: "https://facebook.com/siddharth17196"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url:
