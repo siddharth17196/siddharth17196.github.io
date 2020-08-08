@@ -62,7 +62,7 @@ as a named argument which recieves a a function. Some common key functions
 are: `sort`, `sorted`, `min` and `max`.
 
 The following block shows the use of a key function for sorting a list of tuples. 
-In this case we want to sort the list based on the first value of th tuple. 
+In this case we want to sort the list based on the first value of the tuple. 
 This is done using the inbult sort function with the key recieving the name of 
 the function that returns the first value.
 ```python
