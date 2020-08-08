@@ -1,0 +1,528 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lambda Expressions: Is It Any Good ? - Siddharth Nair</title>
+<meta name="description" content="I happened to stumble upon this expression recently while going through a piece  of code and after reading the python docs I just realised that I could very well  survive without knowing it. But . . . There were some undoubtedly cool stuff about this expression that I liked.  Although there exist many use cases for this, I will just go through the ones  that I found useful and might end up using.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Siddharth Nair">
+<meta property="og:title" content="Lambda Expressions: Is It Any Good ?">
+<meta property="og:url" content="http://localhost:4000/python/lambda-functions/">
+
+
+  <meta property="og:description" content="I happened to stumble upon this expression recently while going through a piece  of code and after reading the python docs I just realised that I could very well  survive without knowing it. But . . . There were some undoubtedly cool stuff about this expression that I liked.  Although there exist many use cases for this, I will just go through the ones  that I found useful and might end up using.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-07-08T00:00:00+05:30">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/python/lambda-functions/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Siddharth Nair",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Siddharth Nair Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Siddharth Nair
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/assets/resume/Resume_fc.pdf">Resume</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/githubss.png" alt="" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>An <em>engineer</em> with a love for <em>football</em>, <em>photography</em> and <strong>CATS</strong></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">New Delhi, India</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:siddharth17196@iiitd.ac.in" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/siddharth17196" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lambda Expressions: Is It Any Good ?">
+    <meta itemprop="description" content="I happened to stumble upon this expression recently while going through a piece of code and after reading the python docs I just realised that I could very well survive without knowing it.But . . .There were some undoubtedly cool stuff about this expression that I liked. Although there exist many use cases for this, I will just go through the ones that I found useful and might end up using.">
+    <meta itemprop="datePublished" content="2020-07-08T00:00:00+05:30">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lambda Expressions: Is It Any Good ?
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#what-are-lambda-expressions-">What are lambda expressions ?</a></li>
+  <li><a href="#some-use-cases">Some Use Cases</a>
+    <ul>
+      <li><a href="#normal-functions">Normal Functions</a></li>
+      <li><a href="#inside-other-functions">Inside Other Functions</a></li>
+      <li><a href="#key-functions">Key Functions</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>I happened to stumble upon this expression recently while going through a piece 
+of code and after reading the python docs I just realised that I could very well 
+survive without knowing it.<br />
+But . . .<br />
+There were some undoubtedly cool stuff about this expression that I liked. 
+Although there exist many use cases for this, I will just go through the ones 
+that I found useful and might end up using.</p>
+
+<h2 id="what-are-lambda-expressions-">What are lambda expressions ?</h2>
+<blockquote>
+  <p>Lambda expressions (sometimes called lambda forms) are used to create anonymous 
+functions.</p>
+</blockquote>
+
+<p>An anonymous function refers to a function declared with no name. So while a 
+normal function is created using the keyword <code class="language-plaintext highlighter-rouge">def</code>, an anonymous function is 
+created using a keyword <code class="language-plaintext highlighter-rouge">lambda</code>.</p>
+
+<p>The lambda expression <code class="language-plaintext highlighter-rouge">lambda parameters : expression</code> behaves as a function 
+that takes the <em>parameters</em> and returns the <em>expression</em>.</p>
+
+<p>Lambda functions are syntactically restricted to a single expression. Like nested 
+function definitions, lambda functions can reference variables from the containing 
+scope:</p>
+
+<h2 id="some-use-cases">Some Use Cases</h2>
+<h3 id="normal-functions">Normal Functions</h3>
+<p>As long as the return statement can be written as a single expression any function 
+can be converted to a lambda expression. For <strong>small functions</strong> such as the 
+one shown below, I would prefer the lambda expression as it reduces the function 
+to just one line and it looks a bit clean. (<em>just a personal preference!!</em>)</p>
+
+<p>Both functions given below have the same call statement i.e. <code class="language-plaintext highlighter-rouge">time_diff(t1, t2)</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># case 1
+</span><span class="k">def</span> <span class="nf">time_diff</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span>
+
+<span class="c1"># case 2
+</span><span class="n">time_diff</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">:</span> <span class="p">(</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span>
+</code></pre></div></div>
+<h3 id="inside-other-functions">Inside Other Functions</h3>
+<p>This is a very common implementation of the lambda expression and shows it’s 
+true power.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="n">n</span>
+<span class="n">square</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># 4
+</span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># 27
+</span></code></pre></div></div>
+<h3 id="key-functions">Key Functions</h3>
+<p>Key functions in Python are higher-order functions that take a parameter <code class="language-plaintext highlighter-rouge">key</code> 
+as a named argument which recieves a a function. Some common key functions 
+are: <code class="language-plaintext highlighter-rouge">sort</code>, <code class="language-plaintext highlighter-rouge">sorted</code>, <code class="language-plaintext highlighter-rouge">min</code> and <code class="language-plaintext highlighter-rouge">max</code>.</p>
+
+<p>The following block shows the use of a key function for sorting a list of tuples. 
+In this case we want to sort the list based on the first value of th tuple. 
+This is done using the inbult sort function with the key recieving the name of 
+the function that returns the first value.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'three'</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">'one'</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">'four'</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">'two'</span><span class="p">)]</span>
+<span class="n">pairs</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">first</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>  <span class="c1"># [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+</span></code></pre></div></div>
+<p>The same sort could have been done using the lambda function in a much more 
+concise way as shown in the example below.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'three'</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">'one'</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">'four'</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">'two'</span><span class="p">)]</span>
+<span class="n">pairs</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pair</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>  <span class="c1"># [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+</span></code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>There are many more applications of lambda expressions and these were just 
+three cases which I found useful.</p>
+
+<p>Although lambda expressions might tempt you to write shorter codes, it does come 
+with a fair share of criticism; mainly for making code hard to read for those not 
+familiar with it.</p>
+
+<p>In the end choose wisely where you want to use lambda’s or normal functions 
+aaannd . . .</p>
+
+<p style="text-align: center;"><img src="/../assets/images/gtg.png" alt="goodtogo" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-07-08T00:00:00+05:30">July 8, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Lambda+Expressions%3A+Is+It+Any+Good+%3F%20http%3A%2F%2Flocalhost%3A4000%2Fpython%2Flambda-functions%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Flambda-functions%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Flambda-functions%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+            
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/nibbanair" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Siddharth Nair. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
