@@ -1,5 +1,5 @@
 ---
-title: "Lambda Expressions: Is It Any Good ?" 
+title: "Lambda Expressions" 
 categories:
   - Python
 toc: true
